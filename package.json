@@ -57,6 +57,10 @@
   },
   "homepage": "https://github.com/MingXingTeam/webpack-react-starter#readme",
   "dependencies": {
-    "eslint": "^2.4.0"
+    "bluebird": "^3.3.4",
+    "eslint": "^2.4.0",
+    "keymirror": "^0.1.1",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1"
   }
 }
