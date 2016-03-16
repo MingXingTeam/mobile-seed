@@ -1,28 +1,14 @@
-import React from 'react';
-import ReactDom from 'react-dom'
-import App from './components/app'
+import React from 'react'
+import { render } from 'react-dom'
+import createStore from './store/create-store'
+import { Provider } from 'react-redux'
+import Home from './components/home'
 
+const store = createStore()
 
-ReactDom.render(<App />, document.getElementById('test'))
-
-// var $ = require('jquery');
-// let commonAB = require('./modules/change');
-// // let commonABC = require('./modules/common-a-b-c');
-// // let moduleA = require('./modules/moduleA');
-// // do some thing
-// // let a = 1;
-// console.info(commonAB);
-// // console.info(commonABC);
-// console.info('Hello ddThis is imported success!');
-
-// console.info('ccsdfca');
-
-// commonAB.change();
-
-// import Hello from './components/hello.jsx';
-// import React from 'react';
-// import ReactDom from 'react-dom';
-
-// ReactDom.render(<Hello />, document.getElementById('test'));
-
-
+render(
+      <Provider store={ store }>
+        <Home />
+      </Provider>,
+  document.getElementById('app-wrapper')
+)
