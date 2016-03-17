@@ -1,0 +1,42 @@
+@charset "utf-8";
+html {
+    font-size: 125%;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input,textarea,th,td {
+    margin: 0;
+    padding: 0
+}
+
+body,button,input,select,textarea {
+    font: 1.2/1.5 \5b8b\4f53,tahoma,arial,sans-serif
+}
+
+h1,h2,h3,h4,h5,h6,button,input,select,textarea {
+    font-size: 130%
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+ul,ol {
+    list-style: none
+}
+
+img {
+    border: none
+}
+
+em {
+    font-style: normal
+}
+a {
+    text-decoration: none;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}

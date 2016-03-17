@@ -12,12 +12,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //------------------入口配置---------------------/
 var entry = {
-    'entryA': './src/scripts/entryA.js'
+  'entryA': './src/scripts/entryA.js'
+  // ,
+  //   'index': './src/scripts/index.js'
 }
 //---------------------------------------------/
 var jsxLoaders = ['babel'];
 var cssLoader;
-var sassLoader;
+var scssLoader;
 
 var port = process.env.PORT || 3000;
 var devtool;
@@ -32,7 +34,7 @@ if (process.env.NODE_ENV === 'development') {//开发配置
   devtool ='eval';
   jsxLoaders = ['react-hot'].concat(jsxLoaders);
   cssLoader = 'style!css';
-  sassLoader = 'style!css!sass';
+  scssLoader = 'style!css!sass';
   output = {
     path: path.join(__dirname,"/build"),
     filename: '[id]_[name]_[hash:8].js',
@@ -58,8 +60,8 @@ if (process.env.NODE_ENV === 'development') {//开发配置
   }, {});
 } else {//生产配置
   devtool ='source-map';
-  var cssLoader = ExtractTextPlugin.extract('style', 'css?minimize'); // enable minimize
-  var sassLoader = ExtractTextPlugin.extract('style!css?minimize!sass');
+  cssLoader = ExtractTextPlugin.extract('style', 'css?minimize'); // enable minimize
+  scssLoader = ExtractTextPlugin.extract('style!css?minimize!sass');
   output = {
     path: path.join(__dirname,"/assets"),
     filename: 'scripts/[id]_[name]_[hash:8].min.js',
@@ -110,7 +112,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: sassLoader
+        loader: scssLoader
       },
       {
           test: /\.(jpe?g|png|gif|svg)$/i,

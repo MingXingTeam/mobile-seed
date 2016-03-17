@@ -39,7 +39,8 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state/*, props*/) => {
+const mapStateToProps = (state, props) => {
+  console.log("debug--"+JSON.stringify(state) + '---' + JSON.stringify(props));
   return {
     frozen: state._time.frozen,
     time: state._time.time

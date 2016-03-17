@@ -60,8 +60,12 @@
     "bluebird": "^3.3.4",
     "eslint": "^2.4.0",
     "keymirror": "^0.1.1",
+    "node-sass": "^3.4.2",
+    "react-atellier": "0.0.14",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1",
+    "sass": "^0.5.0",
+    "sass-loader": "^3.2.0",
     "webpack": "^1.12.14"
   }
 }
