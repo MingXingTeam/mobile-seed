@@ -49,8 +49,9 @@ const mapStateToProps = (state, props) => {
   console.log("debug--[state]->"+JSON.stringify(state)+",[props]->"+JSON.stringify(props));
   return {
   	isBackAble: false,
-  	isSearchAble: true,
-  	goSearchPage: state._pageHead.goSearchPage
+  	isSearchAble: true
+  	// ,
+  	// goSearchPage: state._pageHead.goSearchPage
   }
 }
 

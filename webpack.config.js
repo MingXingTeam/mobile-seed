@@ -12,9 +12,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //------------------入口配置---------------------/
 var entry = {
-  'entryA': './src/scripts/entryA.js'
+  // 'entryA': './src/scripts/entryA.js'
   // ,
-  //   'index': './src/scripts/index.js'
+    'index': './src/scripts/index.js'
 }
 //---------------------------------------------/
 var jsxLoaders = ['babel'];

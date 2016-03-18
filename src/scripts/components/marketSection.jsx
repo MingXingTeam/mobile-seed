@@ -1,13 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import * as MarketSectionActionCreator from '../actions/marketSectionActionCreator'
+
 
 // import BackButtonImg from '../../images/sy-fh.png'
 
 let MarketSection = React.createClass({
 	
 	render() {
-		// let { isBackAble, isSearchAble } = this.props;
+		let { result, isSearchAble } = this.props;
 		console.log("debug--[marketSection.props]->"+JSON.stringify(this.props));
+		console.log("result:"+JSON.stringify(result));
 
 		let placeholder = function() {
 			return (
@@ -18,8 +21,7 @@ let MarketSection = React.createClass({
 	        )
 		}
 
-		let list = [];
-		list.length = 6;
+		let list = [1,1,1,1,1,1];
 		list = list.map(function () {
 		    return  (
 	     		<li data-name="--" data-code="--">
@@ -29,40 +31,47 @@ let MarketSection = React.createClass({
             );
 		 });
 		
-		 let list2 = [];
-		 // for(let i = 0; i < 10; i++) {
-		 // 	let style;
-		 // 	if(index %2 == 0) {
-		 // 		style = "backgroundColor: #e9e9e9;"
-		 // 	} else {
-		 // 		style = "backgroundColor: #ffffff;"
-		 // 	}
-		 // 	list2.push();
-		 // }
+		 let list2 = [1,1,1,1,1,1,1,1,1,1];
 		 list2 = list2.map(function (value, index) {
 		 	let style;
 		 	if(index %2 == 0) {
-		 		style = "backgroundColor: #e9e9e9;"
+		 		return  (
+		     		<tr className="market-stock bold" id="--" style={{backgroundColor: '#ffffff'}}>
+	                    <td>
+	                    	<div>--</div>
+	                    	<div style={{fontWeight:'400',fontSize:'1.2rem',color:'#9A9A9A'}}>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                </tr>
+	            );
 		 	} else {
-		 		style = "backgroundColor: #ffffff;"
+		 		return  (
+		     		<tr className="market-stock bold" id="--" style={{backgroundColor: '#e9e9e9'}}>
+	                    <td>
+	                    	<div>--</div>
+	                    	<div style={{fontWeight:'400',fontSize:'1.2rem',color:'#9A9A9A'}}>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                    <td className="color-red">
+	                    	<div>--</div>
+	                    </td>
+	                </tr>
+	            );
 		 	}
-		    return  (
-	     		<tr className="market-stock bold" id="--" style={{style}}>
-                    <td>
-                    	<div>--</div>
-                    	<div style={{fontWeight:'400',fontSize:'1.2rem',color:'#9A9A9A'}}>--</div>
-                    </td>
-                    <td className="color-red">
-                    	<div>--</div>
-                    </td>
-                    <td className="color-red">
-                    	<div>--</div>
-                    </td>
-                    <td className="color-red">
-                    	<div>--</div>
-                    </td>
-                </tr>
-            );
+		    
 		 });
 
 		 // console.error(JSON.stringify(list2, null ,4));
@@ -122,7 +131,7 @@ let MarketSection = React.createClass({
 	},
 	componentWillMount() {
 	   console.log('进入 MarketSection--componentWillMount');
-	   // this.props.dispatch(actionCreator.getTime(delay))
+	   this.props.dispatch(MarketSectionActionCreator.getData())
 	},
 	componentDidMount() {
 	   console.log('进入 MarketSection--componentDidMount');
@@ -142,6 +151,7 @@ let MarketSection = React.createClass({
 const mapStateToProps = (state, props) => {
   console.log("debug--[state]->"+JSON.stringify(state)+",[props]->"+JSON.stringify(props));
   return {
+  	result: state.marketSection.result
   }
 }
 
