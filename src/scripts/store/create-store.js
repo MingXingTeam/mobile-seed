@@ -4,6 +4,7 @@ import * as reducers from '../reducers/marketSectionReducer'
 // import * as reducers from '../reducers/reducers'
 
 export default function(data) {
+  console.log("reducers22=>"+JSON.stringify(reducers));
   var reducer = combineReducers(reducers)
   //多个中间件：applyMiddleware(middleware1, middleware2, ...)(createStore)
   var finalCreateStore = applyMiddleware(promiseMiddleware)(createStore)

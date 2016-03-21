@@ -1,46 +1,55 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import PageHead from './pageHead'
-import MarketSection from './marketSection'
-
-import * as actionCreator from '../actions/actionCreator'
-
-import  '../../styles/all.scss'
+import Market from './market'
+import WareHouse from './warehouse'
+import News from './news'
+import PageTab from './pageTab'
 
 class Index extends React.Component {
-  // onTimeButtonClick (delay) {
-  // 	this.props.dispatch(actionCreator.getTime(delay))
-  // }
-
   render () {
-    
-  	// var { frozen, time } = this.props
-   //  var attrs = {}
-   //  const DELAY = 500 // in ms
-
-   //  if (frozen) {
-   //      attrs = {
-   //        disabled: true
-   //      }
-   //  }
+    let {hideMarket,hideWareHouse,hideNews } = this.props;
+    var attrs = { };
+    console.log(hideMarket+"--"+hideWareHouse+""+hideNews)
+    if (hideMarket) {
+        attrs = {
+          style: "display:none"
+        }
+    }
+    if (hideWareHouse) {
+        attrs = {
+          style: "display:none"
+        }
+    }
+    if (hideNews) {
+        attrs = {
+          style: "display:none"
+        }
+    }
 
     return (
       <div>
         <PageHead />
         <div className="index-general">
             <div className="index-content">
-            	<MarketSection />
+            	<Market { ...attrs }/>
+              <WareHouse { ...attrs }/>
+              <News { ...attrs }/>
             </div>
         </div>
+       
+        <PageTab />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
-  console.log("debug--"+JSON.stringify(state) + '---' + JSON.stringify(props));
   return {
-  	
+  	hideMarket: state._index.hideMarket,
+    hideWareHouse: state._index.hideWareHouse,
+    hideNews: state._index.hideNews,
   }
 }
 

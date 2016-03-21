@@ -5,7 +5,6 @@ import BackButtonImg from '../../images/sy-fh.png'
 
 let PageHead = React.createClass({
 	renderBackButton() {
-		console.log("debug--进入 renderBackButton")
 		return (
 			<div className="back"> 
                 <span className="back-button" href="#">
@@ -32,7 +31,6 @@ let PageHead = React.createClass({
 	},
 	render() {
 		let { isBackAble, isSearchAble, goSearchPage } = this.props;
-		console.log("debug--[pageHead.props]->"+JSON.stringify(this.props));
 		return (
 			 <div className="deal-top">
 			    {isBackAble ? this.renderBackButton() : this.renderBackButtonWithoutImg()}
@@ -46,12 +44,9 @@ let PageHead = React.createClass({
 });
 
 const mapStateToProps = (state, props) => {
-  console.log("debug--[state]->"+JSON.stringify(state)+",[props]->"+JSON.stringify(props));
   return {
   	isBackAble: false,
   	isSearchAble: true
-  	// ,
-  	// goSearchPage: state._pageHead.goSearchPage
   }
 }
 
