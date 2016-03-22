@@ -3,9 +3,15 @@ import { connect } from 'react-redux'
 
 class News extends React.Component {
   render () {
-
+  	let {hideNews } = this.props;
+  	var attrs = { };
+    if (hideNews) {
+        attrs = {
+          style: {display:'none'}
+        }
+    }
     return (
-        <div className="news">
+        <div {...attrs} className="news">
 		    <ul className="newsHead">
 		        <li><div id="roll" className="select">要闻快递</div></li>
 		        <li><div id="opportunity">兴证资讯</div></li>
@@ -20,7 +26,7 @@ class News extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-  	
+  	hideNews: state._pageTab.hideNews
   }
 }
 

@@ -1,11 +1,16 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import promiseMiddleware from './promise-middleware'
-import * as reducers from '../reducers/marketSectionReducer'
-// import * as reducers from '../reducers/reducers'
+import {_index, _plate, _rank} from '../reducers/marketReducer'
+import {_pageTab} from '../reducers/pageTabReducer'
 
 export default function(data) {
-  console.log("reducers22=>"+JSON.stringify(reducers));
-  var reducer = combineReducers(reducers)
+
+    var reducer = combineReducers({
+	    _index: _index,
+	    _plate: _plate,
+	    _rank: _rank,
+	    _pageTab: _pageTab
+	})
   //多个中间件：applyMiddleware(middleware1, middleware2, ...)(createStore)
   var finalCreateStore = applyMiddleware(promiseMiddleware)(createStore)
   var store = finalCreateStore(reducer, data)
