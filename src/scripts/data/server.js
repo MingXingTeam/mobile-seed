@@ -13,8 +13,13 @@ export function getPlateData({data, type, callbackname}) {
   return Request.myAjax(url, data, type, callbackname);
 }
 
-export function getRankData({data, type, callbackname}) {
+export function getDropAndIncreaseRankData({data, type, callbackname}) {
   const url = host + `/v2/rank/33,17/199112/d10.js`;
+  return Request.myAjax(url, data, type, callbackname);
+}
+
+export function getHandRateData({data, type, callbackname}) {
+  const url = host + `/v2/rank/33,17/1968584/d10.js`;
   return Request.myAjax(url, data, type, callbackname);
 }
 

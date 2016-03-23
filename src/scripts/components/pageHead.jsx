@@ -45,8 +45,8 @@ let PageHead = React.createClass({
 
 const mapStateToProps = (state, props) => {
   return {
-  	isBackAble: false,
-  	isSearchAble: true
+  	isBackAble: state._app.isBackAble,
+  	isSearchAble: state._app.isSearchAble
   }
 }
 

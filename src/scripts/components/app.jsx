@@ -1,16 +1,41 @@
-import React, { Component } from 'react'
-//必须以./开头
-import TextInput from './TextInput'
+import React from 'react'
+import { connect } from 'react-redux'
+import cx from 'classnames'
 
-class App extends Component {
-	render() {
-		return  (
-			<div>
-				Hello Worlds 
-				<TextInput />
-			</div>
-			)
-	}
+import PageHead from './pageHead'
+import Market from './market'
+import WareHouse from './warehouse'
+import News from './news'
+import PageTab from './pageTab'
+
+class App extends React.Component {
+  render () {
+    var {} = this.props;
+
+    return (
+      <div>
+        <PageHead />
+        <div className="index-general">
+            <div className="index-content">
+            	<Market />
+              <WareHouse />
+              <News />
+            </div>
+        </div>
+        <PageTab />
+      </div>
+    )
+  }
 }
 
-export default App
+const mapStateToProps = (state, props) => {
+  return {
+  }
+}
+
+const ConnectedApp = connect(mapStateToProps)(App)
+
+export default ConnectedApp
+
+
+

@@ -31,12 +31,31 @@ export function getRankData() {
   return {
     types: ['GET_RANK_DATA_REQUEST', 'GET_RANK_DATA_SUCCESS', 'GET_RANK_DATA_FAILURE'],
     promise: () => {
-        return Server.getRankData({
+        return Server.getDropAndIncreaseRankData({
           data:null, 
           type:'jsonp',
           callbackname:'quotebridge_v2_rank_33_17_199112_d10'
         });
     }
+  }
+}
+
+export function getHandRateData() {
+  return {
+    types: ['GET_HANDRATE_DATA_REQUEST', 'GET_HANDRATE_DATA_SUCCESS', 'GET_HANDRATE_DATA_FAILURE'],
+    promise: () => {
+        return Server.getHandRateData({
+          data:null, 
+          type:'jsonp',
+          callbackname:'quotebridge_v2_rank_33_17_1968584_d10'
+        });
+    }
+  }
+}
+
+export function showKlinePage() {
+  return {
+    type: 'SHOW-KLINE-PAGE'
   }
 }
 

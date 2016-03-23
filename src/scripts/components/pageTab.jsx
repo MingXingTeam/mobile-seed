@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs'
 
 import * as PageTabActionCreator from '../actions/pageTabActionCreator'
 
@@ -37,7 +38,8 @@ class PageTab extends React.Component {
       }
     } 
     return (
-        <div className="index-bottom"> 
+        <div className="index-bottom">
+
     	    <ul>
     	        <li {...marketAttrs} id="market" onClick={() => this.showMarket()}>行情</li>
     	        <li {...wareHouseAttrs} id="warehouse" onClick={() => this.showWarehouse()}>自选</li>

@@ -62,27 +62,20 @@ export function _rank(state = initialTimeState, action) {
                 ...state
             }
 
-        // case 'SHOW-DROP-TAB': // 切换排名选项卡
-        //     return {
-        //         ...state,
-        //         hideDropTab: false,
-        //         hideIncreaseTab: true,
-        //         hideHandRateTab: true
-        //     }
-        // case 'SHOW-INCREASE-TAB': // 切换排名选项卡
-        //     return {
-        //         ...state,
-        //         hideDropTab: true,
-        //         hideIncreaseTab: false,
-        //         hideHandRateTab: true
-        //     }
-        // case 'SHOW-HANDRATE-TAB': // 切换排名选项卡
-        //     return {
-        //         ...state,
-        //         hideDropTab: true,
-        //         hideIncreaseTab: true,
-        //         hideHandRateTab: false
-        //     }
+
+        case 'GET_HANDRATE_DATA_REQUEST':
+            return {
+                ...state
+            }
+        case 'GET_HANDRATE_DATA_SUCCESS':
+            return {
+                ...state,
+                handRateResult: action.result
+            }
+        case 'GET_HANDRATE_DATA_FAILURE':
+            return {
+                ...state
+            }
         default:
             return state
     }
