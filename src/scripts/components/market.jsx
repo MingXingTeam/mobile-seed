@@ -71,38 +71,75 @@ let Market = React.createClass({
 	                    	indexData && Object.keys(indexData).map((key, index) => {
 	                    		// console.log("TestThis=>"+JSON.stringify(this.props))
 	                    		let indexObj = indexData[key];
-	                    		if( indexObj.name === "深证成指" || 
-	                    			indexObj.name === "创业板指" || 
-	                    			indexObj.name === "上证指数") {
-	                    			// console.log("makert.indexObj[10]=>"+indexObj[10])
-	                    			return  <li id={ indexObj.id } key={ indexObj.id }>
-						                       <div>{indexObj.name}</div>
-						                        <div className={cx({
-						                        	"newprice":true, 
-						                        	"bold":true,
-						                        	"color-blue": indexObj[10] > 0 ? false: true,
-						                        	"color-red": indexObj[10] > 0 ? true: false
-						                            })}>
-						                        	{indexObj[10]}
-						                        </div>
-						                        <div className="marginTop">
-									                <span className={cx({
-							                        	"quotevalue":true, 
-							                        	"color-blue": indexObj[264648] > 0 ? false: true,
-							                        	"color-red": indexObj[264648] > 0 ? true: false
+	                    // 		if( indexObj.name === "深证成指" || 
+	                    // 			indexObj.name === "创业板指" || 
+	                    // 			indexObj.name === "上证指数") {
+	                    // 			// console.log("makert.indexObj[10]=>"+indexObj[10])
+	                    // 			return  <li id={ indexObj.id } key={ indexObj.id }>
+						               //         <div>{indexObj.name}</div>
+						               //          <div className={cx({
+						               //          	"newprice":true, 
+						               //          	"bold":true,
+						               //          	"color-blue": indexObj[10] > 0 ? false: true,
+						               //          	"color-red": indexObj[10] > 0 ? true: false
+						               //              })}>
+						               //          	{indexObj[10]}
+						               //          </div>
+						               //          <div className="marginTop">
+									            //     <span className={cx({
+							              //           	"quotevalue":true, 
+							              //           	"color-blue": indexObj[264648] > 0 ? false: true,
+							              //           	"color-red": indexObj[264648] > 0 ? true: false
+							              //               })}>
+									            //     	{indexObj[264648]}
+									            //     </span>
+									            //     <span className={cx({
+							              //           	"quotesize":true, 
+							              //           	"color-blue": indexObj[199112] > 0 ? false: true,
+							              //           	"color-red": indexObj[199112] > 0 ? true: false
+							              //               })}>
+									            //     	{indexObj[199112] > 0 ? `+${indexObj[199112]}` : `${indexObj[199112]}`}%
+									            //     </span>
+									            // </div>
+					                //         </li>
+	                    // 		} else {
+	                    			return  <TransitionMotion
+								            defaultStyles={{height: 0, opacity: 1}}
+								            styles={{
+									          height: spring(60, presets.gentle),
+									          opacity: spring(1, presets.gentle)
+									        }}>
+									        {styles =>
+										        <li style={style} id={ indexObj.id } key={ indexObj.id }>
+							                        <div>{indexObj.name}</div>
+							                        <div className={cx({
+							                        	"newprice":true, 
+							                        	"bold":true,
+							                        	"color-blue": indexObj[10] > 0 ? false: true,
+							                        	"color-red": indexObj[10] > 0 ? true: false
 							                            })}>
-									                	{indexObj[264648]}
-									                </span>
-									                <span className={cx({
-							                        	"quotesize":true, 
-							                        	"color-blue": indexObj[199112] > 0 ? false: true,
-							                        	"color-red": indexObj[199112] > 0 ? true: false
-							                            })}>
-									                	{indexObj[199112] > 0 ? `+${indexObj[199112]}` : `${indexObj[199112]}`}%
-									                </span>
-									            </div>
-					                        </li>
-	                    		}
+							                        	{indexObj[10]}
+							                        </div>
+							                        <div className="marginTop">
+										                <span className={cx({
+								                        	"quotevalue":true, 
+								                        	"color-blue": indexObj[264648] > 0 ? false: true,
+								                        	"color-red": indexObj[264648] > 0 ? true: false
+								                            })}>
+										                	{indexObj[264648]}
+										                </span>
+										                <span className={cx({
+								                        	"quotesize":true, 
+								                        	"color-blue": indexObj[199112] > 0 ? false: true,
+								                        	"color-red": indexObj[199112] > 0 ? true: false
+								                            })}>
+										                	{indexObj[199112] > 0 ? `+${indexObj[199112]}` : `${indexObj[199112]}`}%
+										                </span>
+										            </div>
+						                        </li>
+						                   }
+          							</TransitionMotion>
+	                    		// }
 				        	})
 	                	}
                     </ul>
